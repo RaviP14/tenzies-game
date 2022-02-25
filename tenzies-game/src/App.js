@@ -4,6 +4,8 @@ import Die from './components/Die'
 
 function App() {
 
+  const [dice, setDice] = React.useState(allNewDice(1, 6, 10))
+
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -12,28 +14,25 @@ function App() {
 
 
   function allNewDice(min, max, dice) {
-    const array = []
+    const newDice = []
     for (let i = 0; i < dice; i++) {
         const element = getRandomInt(min, max)
-        array.push(element)
+        newDice.push(element)
     }
-    return array;
+    return newDice;
   }
+
+  const dices = dice.map(number => {
+    return (
+        <Die value={number} />
+    )
+  })
 
   return (
     <main>
       <div className="border">
       <div className="DieContainer">
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
-                <Die value={1} />
+                {dices}
             </div>
       </div>
     </main>
