@@ -1,9 +1,10 @@
-
+import "./styles/style.css"
 
 function App() {
   return (
-    <div>
-    </div>
+    <main>
+      <div className="border"></div>
+    </main>
   )
 }
 
