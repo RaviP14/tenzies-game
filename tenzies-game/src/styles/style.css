@@ -18,4 +18,34 @@ body {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DieContainer {
+  display: grid;
+  width: 90%;
+  height: 30%;
+  grid-template: auto auto / repeat(5, 1fr);
+  grid-gap: 5%;
+}
+
+.Die {
+  justify-self: center;
+  align-self: center;
+  height: 5rem;
+  width: 5rem;
+  filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
+  background-color: #ffffff;
+  color: #2b283a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.DieNumber {
+  font-size: 2rem;
 }
