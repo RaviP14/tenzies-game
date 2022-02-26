@@ -13,20 +13,24 @@ function App() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-
   function allNewDice(min, max, dice) {
     const newDice = []
     for (let i = 0; i < dice; i++) {
-      const element = getRandomInt(min, max)
-      const code = nanoid()
-      newDice.push({ value: element, isHeld: false, id: code })
-
+      newDice.push(createNewDie(min, max))
     }
     return newDice;
   }
 
-  function newDice() {
-    setDice(allNewDice(1, 6, 10))
+  function createNewDie(min, max) {
+    const element = getRandomInt(min, max)
+    const code = nanoid()
+    return { value: element, isHeld: false, id: code }
+  }
+
+  function rollNewDice() {
+    setDice(oldDice => {
+      return oldDice.map(die => die.isHeld ? die : createNewDie(1, 6))
+  })
   }
 
   function holdDice(id) {
@@ -52,7 +56,7 @@ function App() {
         <div className="DieContainer">
             {dices}
         </div>
-        <button className="roll-btn" onClick={newDice}>Roll</button>
+        <button className="roll-btn" onClick={rollNewDice}>Roll</button>
       </div>
     </main>
   )
