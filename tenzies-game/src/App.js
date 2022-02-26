@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/style.css'
 import Die from './components/Die'
+import { nanoid } from 'nanoid'
 
 function App() {
 
@@ -16,8 +17,10 @@ function App() {
   function allNewDice(min, max, dice) {
     const newDice = []
     for (let i = 0; i < dice; i++) {
-        const element = getRandomInt(min, max)
-        newDice.push({ value: element, isHeld: false })
+      const element = getRandomInt(min, max)
+      const code = nanoid()
+      newDice.push({ value: element, isHeld: false, id: code })
+
     }
     return newDice;
   }
@@ -28,7 +31,7 @@ function App() {
 
   const dices = dice.map(die => {
     return (
-        <Die value={die.value} />
+        <Die key={die.id} value={die.value} />
     )
   })
 
