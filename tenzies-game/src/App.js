@@ -6,6 +6,18 @@ import { nanoid } from 'nanoid'
 function App() {
 
   const [dice, setDice] = React.useState(allNewDice(1, 6, 10))
+  const [tenzies, setTenzies] = React.useState(false)
+
+  //useEffect is used to keep 2 states in sync.
+  React.useEffect(() => {
+    const isTrue =  dice.every(die => die.isHeld)
+       const value1 = dice[0].value
+       const sameValue = dice.every(die => die.value === value1)
+       if (isTrue && sameValue) {
+           setTenzies(true)
+           console.log("You won!")
+       }
+}, [dice])
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
