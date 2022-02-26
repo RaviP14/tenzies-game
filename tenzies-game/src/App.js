@@ -17,7 +17,7 @@ function App() {
     const newDice = []
     for (let i = 0; i < dice; i++) {
         const element = getRandomInt(min, max)
-        newDice.push(element)
+        newDice.push({ value: element, isHeld: false })
     }
     return newDice;
   }
@@ -26,9 +26,9 @@ function App() {
     setDice(allNewDice(1, 6, 10))
   } 
 
-  const dices = dice.map(number => {
+  const dices = dice.map(die => {
     return (
-        <Die value={number} />
+        <Die value={die.value} />
     )
   })
 
