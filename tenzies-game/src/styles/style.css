@@ -48,6 +48,10 @@ body {
   cursor: pointer;
 }
 
+.held {
+  background-color: #59e391;
+}
+
 .DieNumber {
   font-size: 2rem;
 }
