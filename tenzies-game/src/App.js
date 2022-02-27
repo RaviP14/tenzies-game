@@ -8,6 +8,7 @@ function App() {
 
   const [dice, setDice] = React.useState(allNewDice(1, 6, 10))
   const [tenzies, setTenzies] = React.useState(false)
+  const [rolls, setRolls] =React.useState(0)
 
   //useEffect is used to keep 2 states in sync.
   React.useEffect(() => {
@@ -42,11 +43,13 @@ function App() {
 
   function rollNewDice() {
     if (!tenzies){
+      setRolls(prevRolls => prevRolls + 1)
       setDice(oldDice => {
         return oldDice.map(die => die.isHeld ? die : createNewDie(1, 6))
       })
     } else {
       setTenzies(false)
+      setRolls(0)
       setDice(allNewDice(1, 6, 10))
     }
   }
@@ -74,6 +77,7 @@ function App() {
       <div className="border">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <p className="rolls-text">{rolls > 0 ? `You rolled ${rolls} times` : ""}</p>
         <div className="DieContainer">
             {dices}
         </div>

@@ -39,6 +39,11 @@ body {
   margin-left: 5%;
   margin-right: 5%;
 }
+.rolls-text {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
 
 .DieContainer {
   display: grid;
