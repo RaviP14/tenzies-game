@@ -8,7 +8,8 @@ function App() {
 
   const [dice, setDice] = React.useState(allNewDice(1, 6, 10))
   const [tenzies, setTenzies] = React.useState(false)
-  const [rolls, setRolls] =React.useState(0)
+  const [rolls, setRolls] = React.useState(0)
+  const [highScore, setHighScore] = React.useState(JSON.parse(localStorage.getItem("highScore")) || {score: 0}) 
 
   //useEffect is used to keep 2 states in sync.
   React.useEffect(() => {
@@ -16,10 +17,17 @@ function App() {
        const value1 = dice[0].value
        const sameValue = dice.every(die => die.value === value1)
        if (isTrue && sameValue) {
-           setTenzies(true)
-           console.log("You won!")
-       }
+          setTenzies(true)
+          console.log("You won!")
+          if (highScore.score === 0 || rolls < highScore.score) {
+            setHighScore({score: rolls})
+          }
+        }
 }, [dice])
+
+  React.useEffect(() => {
+    localStorage.setItem("highScore", JSON.stringify(highScore))
+  }, [highScore])
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -73,10 +81,11 @@ function App() {
 
   return (
     <main>
-      {tenzies && <Confetti />}
+      {(tenzies && highScore.score === rolls) && <Confetti />}
       <div className="border">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <h3 className="highScore">{`High Score: ${highScore.score > 0 ? highScore.score : "_"}`}</h3>
         <p className="rolls-text">{rolls > 0 ? `You rolled ${rolls} times` : ""}</p>
         <div className="DieContainer">
             {dices}
