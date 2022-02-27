@@ -18,16 +18,22 @@ function App() {
        const sameValue = dice.every(die => die.value === value1)
        if (isTrue && sameValue) {
           setTenzies(true)
-          console.log("You won!")
-          if (highScore.score === 0 || rolls < highScore.score) {
-            setHighScore({score: rolls})
-          }
         }
 }, [dice])
 
   React.useEffect(() => {
     localStorage.setItem("highScore", JSON.stringify(highScore))
   }, [highScore])
+
+  React.useEffect(() => {
+    updateScore()
+  })
+
+  function updateScore() {
+    if ((tenzies && highScore.score === 0) || (tenzies && rolls < highScore.score)) {
+      setHighScore({score: rolls})
+    }
+  }
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
