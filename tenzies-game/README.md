@@ -22,7 +22,7 @@ npm start
 
 ### Features
 
-- Responsive Design (works with mobiles)
+- Responsive Design (with media queries for mobile view)
 - Highscore saved to Local Storage
 - Roll Counter
 - Confetti drops when you beat highscore.
