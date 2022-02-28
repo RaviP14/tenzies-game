@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ravip14.github.io/tenzies-game/tenzies-game/static/css/main.09e8132e.css",
+    "main.js": "/ravip14.github.io/tenzies-game/tenzies-game/static/js/main.536315e6.js",
+    "index.html": "/ravip14.github.io/tenzies-game/tenzies-game/index.html",
+    "main.09e8132e.css.map": "/ravip14.github.io/tenzies-game/tenzies-game/static/css/main.09e8132e.css.map",
+    "main.536315e6.js.map": "/ravip14.github.io/tenzies-game/tenzies-game/static/js/main.536315e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09e8132e.css",
+    "static/js/main.536315e6.js"
+  ]
+}
