@@ -8,7 +8,7 @@ Live preview: <a href="">here</a>.
 
 ```
 git clone https://github.com/RaviP14/tenzies-game.git
-cd cv-application
+cd tenzies-game/tenzies-game
 npm install
 npm start
 ```
