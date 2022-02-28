@@ -15,7 +15,14 @@ npm start
 
 ### Tools
 
-- React
+- React (Hooks)
 - nanoid
 - react-confetti
 - Visual Studio Code
+
+### Features
+
+- Responsive Design (with media queries for mobile view)
+- Highscore saved to Local Storage
+- Roll Counter
+- Confetti drops when you beat highscore.
