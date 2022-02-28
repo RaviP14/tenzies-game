@@ -2,7 +2,7 @@
 
 ## overview
 
-Live preview: <a href="">here</a>.
+Live preview: <a href="https://ravip14.github.io/tenzies-game/">here</a>.
 
 ### Getting started
 
